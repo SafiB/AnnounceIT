@@ -1,0 +1,86 @@
+<html>
+<head>
+  <title>View all users announcements</title>
+  <link rel="stylesheet" href="/ui/css/view.css">
+  </head>
+  <body>
+      <header>
+        <p>Advertize with us</p>
+      </header>
+      <div class="content">
+        <form class="adminView-form">
+          <h1><p> all user's announcements</p></h1>
+          <div class="row">
+            <div class="col-25">
+              <label for="Status">Status</label>
+            </div>
+            <div class="col-75">
+              <select id="status" name="Status">
+                <option value="pending">Pending</option>
+                <option value="declined">declined</option>
+                <option value="active">active</option>
+                <option value="deactivate">deasactived</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-25">
+            <label for="search"> Search</label>
+            </div>
+            <div class="col-75">
+            <input type="text" id="search" placeholder="Email"/>
+            </div>
+             </div>
+          <div class="row">
+            <div class="col-25">
+              <label for="sort">Sort</label>
+            </div>
+            <div class="col-75">
+              <select id="sort" name="sort">
+                <option value="Date">Posted date</option>
+                <option value="Email">Email></option>
+              </select>
+            </div>
+          </div>
+          
+          <table>
+            <tr>
+              <th><h2>Email<h2></th>
+              <th><h2>Announcement<h2></th>
+              <th><h2>Status</h2></th>
+              <th><h2>Post Date</h2></th>
+            </tr>
+            <tr>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+            </tr>
+           
+          </table>
+      <div class="button2"> 
+        <input type="button" class="reportbtn" onclick="window.location.href = 'flag.html';" value="Report"/>  
+        <input type="submit" class="blockbtn"  value="Block" onclick="alert('Are you sure you want to put this user on blacklist?');">  
+        <input type="submit" class="Deletebtn"  value="Delete" onclick="alert('Are you sure you want to delete this announcement?');">  
+      </div>
+      </form>
+      </div>
+<div id="footer"><footer>
+  &copy;2020 Advertise with us
+</footer></div>  
+</body>
+
+</html>
+

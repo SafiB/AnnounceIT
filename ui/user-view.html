@@ -1,0 +1,65 @@
+<html>
+<head>
+  <title>User view</title>
+  <link rel="stylesheet" href="/UI/css/view.css">
+  </head>
+  <body>
+    
+    <div id="page-container">
+      <div id="header">
+        <header>
+          <p>Advertize with us</p>
+        </header>
+      </div>
+      <div id="content-wrap">
+          <form class="user-view-form">
+            <h1><p>View your announcements</p></h1>
+            <div class="row">
+              <div class="col-25">
+                <label for="Status">Status</label>
+              </div>
+              <div class="col-75">
+                <select id="status" name="Status">
+                  <option value="all">All</option>
+                  <option value="pending">Pending</option>
+                  <option value="declined">declined</option>
+                  <option value="active">active</option>
+                  <option value="deactivate">deasactived</option>
+                </select>
+              </div>
+            </div>
+      <table>
+        <tr>
+          <th><h2>Announcement<h2></th>
+          <th><h2>Status</h2></th>
+          <th> <h2>Post Date</h2></th>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+      </table>
+      <div class="button1"> 
+          <input type="button" class="Updatebtn" onclick="window.location.href = 'update.html';" value="Update"/>
+          <input type="button"  class="createbtn" onclick="window.location.href = 'announcement.html';" value="Create a new Announcement"/> 
+          
+        </div>
+      </form>
+    </div>
+    <div id="footer"><footer>
+      &copy;2020 Advertise with us
+    </footer></div>   
+  </div>    
+</body>
+</html>
