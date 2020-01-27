@@ -54,4 +54,15 @@ describe('User tests', () => {
         done();
       });
   });
+  it('Should not login not found users', (done) => {
+    const user = testdata[3];
+    chai.request(server)
+      .post('/api/v1/auth/signin')
+      .send(user)
+      .end((error, res) => {
+        res.body.status.should.be.equal(404);
+        expect(res.body.error).to.equal('This user is not registered');
+        done();
+      });
+  });
 });
