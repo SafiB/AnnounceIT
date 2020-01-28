@@ -38,6 +38,7 @@ table, th, td {
     margin: 50px 300px;
     padding: 30px 70px;
     height: 400px;
+    border: 3px solid lightgray;
   }
   .col-25 {
   float: left;
@@ -103,11 +104,12 @@ table, th, td {
   position: relative;
   margin: 50px 300px;
   padding: 30 70px;
+  border: 3px solid lightgray;
   }
   /*user view and admin view*/
   body{
     /*background-image: url(Pic.jpg);|*/
-    background-color:whitesmoke;
+    background-color:white;
   }
  
   header{
