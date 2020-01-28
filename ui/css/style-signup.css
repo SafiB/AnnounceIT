@@ -73,7 +73,7 @@ input[type=text],
   display: table;
   clear: both;
   padding: 5% 0 0;
-  margin: auto;
+  margin: 0 auto;
   background-position: center;
 }
 footer {
