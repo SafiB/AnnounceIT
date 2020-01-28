@@ -19,7 +19,7 @@ describe('User tests', () => {
       });
   });
 
-  it('should be signup', (done) => {
+  it('should be able to signup', (done) => {
     const user = testdata[0];
     chai.request(server)
       .post('/api/v1/auth/signup')
@@ -31,14 +31,14 @@ describe('User tests', () => {
       });
   });
 
-  it('should not duplicate a user', (done) => {
+  it('should not create existing user', (done) => {
     const user = testdata[0];
     chai.request(server)
       .post('/api/v1/auth/signup')
       .send(user)
       .end((error, res) => {
         res.body.status.should.be.equal(409);
-        expect(res.body.error).to.equal('Email already exists');
+        expect(res.body.error).to.equal('This Email already exists');
         done();
       });
   });
@@ -54,8 +54,19 @@ describe('User tests', () => {
         done();
       });
   });
-  it('Should not login not found users', (done) => {
+  it('Should not login a user with an incorrect password', (done) => {
     const user = testdata[3];
+    chai.request(server)
+      .post('/api/v1/auth/signin')
+      .send(user)
+      .end((error, res) => {
+        res.body.status.should.be.equal(400);
+        expect(res.body.error).to.equal('wrong password!');
+        done();
+      });
+  });
+  it('Should not login not found users', (done) => {
+    const user = testdata[4];
     chai.request(server)
       .post('/api/v1/auth/signin')
       .send(user)

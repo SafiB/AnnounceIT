@@ -28,11 +28,11 @@ class usersController {
   static signin(req, res) {
     const user = userquery.findByEmail(req.body.email);
     const tokenData = {
-      id: user.id, firstname: user.firstname, lastname: user.lastname, phoneNumber: user.phoneNumber, agency: user.agency, email: user.email, is_admin: user.is_admin,
+      id: user.id, firstname: user.firstname, lastname: user.lastname, phoneNumber: user.phoneNumber, agency: user.agency, email: user.email, password: user.password, is_admin: user.is_admin,
     };
     const token = tokensGenerator(tokenData);
     const data = {
-      token, id: user.id, firstname: user.firstname, lastname: user.lastname, phoneNumber: user.phoneNumber, is_admin: user.is_admin,
+      token, id: user.id, firstname: user.firstname, lastname: user.lastname, phoneNumber: user.phoneNumber, agency: user.agency, email: user.email, password: user.password, is_admin: user.is_admin,
     };
     Responses.successResponse(res, 200, 'Logged in successfully', data);
   }
