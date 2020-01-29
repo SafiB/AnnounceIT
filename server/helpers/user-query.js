@@ -1,11 +1,11 @@
 import users from '../models/users';
 
 class userquery {
-  static createUser(testdata) {
+  static createUsers(testdata) {
     return users.push(testdata);
   }
 
-  static findByEmail(email) {
+  static findEmail(email) {
     return users.find(u => u.email === email);
   }
 }

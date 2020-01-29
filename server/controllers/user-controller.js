@@ -14,7 +14,7 @@ class usersController {
     const user = req.body;
     user.password = hash.hashSync(user.password);
     user.id = users.length + 1;
-    userquery.createUser(user);
+    userquery.createUsers(user);
     const tokenData = {
       id: user.id, firstname: user.firstname, lastname: user.lastname, phoneNumber: user.phoneNumber, agency: user.agency, email: user.email, is_admin: user.is_admin,
     };
@@ -22,19 +22,19 @@ class usersController {
     const data = {
       token, id: user.id, firstname: user.firstname, lastname: user.lastname, email: user.email, phoneNumber: user.phoneNumber, agency: user.agency, is_admin: user.is_admin,
     };
-    Responses.successResponse(res, 201, 'User created successfully', data);
+    Responses.success(res, 201, 'User created successfully', data);
   }
 
   static signin(req, res) {
-    const user = userquery.findByEmail(req.body.email);
+    const user = userquery.findEmail(req.body.email);
     const tokenData = {
       id: user.id, firstname: user.firstname, lastname: user.lastname, phoneNumber: user.phoneNumber, agency: user.agency, email: user.email, password: user.password, is_admin: user.is_admin,
     };
     const token = tokensGenerator(tokenData);
-    const data = {
+    const testdata = {
       token, id: user.id, firstname: user.firstname, lastname: user.lastname, phoneNumber: user.phoneNumber, agency: user.agency, email: user.email, password: user.password, is_admin: user.is_admin,
     };
-    Responses.successResponse(res, 200, 'Logged in successfully', data);
+    Responses.success(res, 200, 'Logged in successfully', testdata);
   }
 }
 export default usersController;

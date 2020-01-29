@@ -1,10 +1,11 @@
-import query from '../helpers/user-query';
+
 import Responses from '../helpers/responses';
+import userquery from '../helpers/user-query';
 
 const userDuplicate = (req, res, next) => {
-  const duplicatedUser = query.findByEmail(req.body.email);
+  const duplicatedUser = userquery.findEmail(req.body.email);
   if (duplicatedUser) {
-    return Responses.failureResponse(res, 409, 'This email already exists');
+    return Responses.failure(res, 409, 'This email already exists');
   }
   return next();
 };

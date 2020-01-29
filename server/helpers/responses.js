@@ -1,5 +1,5 @@
 class Responses {
-  static failureResponse(response, status, error) {
+  static failure(response, status, error) {
     response.status(status)
       .json({
         status,
@@ -7,7 +7,7 @@ class Responses {
       });
   }
 
-  static successResponse(response, status, message, data) {
+  static success(response, status, message, data) {
     response.status(status)
       .json({
         status,
@@ -17,7 +17,7 @@ class Responses {
   }
 
 
-  static deleteResponse(response, status, message) {
+  static delete(response, status, message) {
     response.status(status)
       .json({
         status,

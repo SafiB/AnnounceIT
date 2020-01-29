@@ -2,46 +2,46 @@ import announcements from '../models/announcements';
 // import user from '../Models/user';
 
 class announcementQuery {
-  static createUser(announcement, owner) {
+  static createUsers(announcement, createrEmail) {
     const today = new Date();
     const date = `${today.getFullYear()}-${today.getMonth() + 1}-${today.getDate()}`;
     const newAnnouncement = announcement;
+
     newAnnouncement.id = announcement.length + 1;
-    newAnnouncement.owner = owner;
-    newAnnouncement.status = 'pending';
+    newAnnouncement.createrEmail = createrEmail;
+    newAnnouncement.title = announcement.title;
     newAnnouncement.text = announcement.text;
+    newAnnouncement.status = 'pending';
     newAnnouncement.start_date = date;
     newAnnouncement.end_date = announcement.end_date;
     announcement.push(newAnnouncement);
   }
 
-  static changeStatus(id, status) {
-    const announcementIndex = announcements.findIndex(a => a.id === id);
+  static changeStatus(createrEmail, status) {
+    const announcementIndex = announcements.findIndex(a => a.createrEmail === createrEmail);
     announcements[announcementIndex].status = status;
     return announcements[announcementIndex];
   }
 
-  static updateAnnouncement(id, data) {
+  static updateAnnouncement(createrEmail, testdata) {
     // eslint-disable-next-line radix
-    const announcementID = parseInt(id);
-
-    const announcementIndex = announcements.findIndex(a => a.id === announcementID);
-    announcements[announcementIndex].text = data.text;
-    announcements[announcementIndex].end_date = data.end_date;
+    const announcementIndex = announcements.findIndex(a => a.id === createrEmail);
+    announcements[announcementIndex].text = testdata.text;
+    announcements[announcementIndex].end_date = testdata.end_date;
     return announcements[announcementIndex];
   }
 
   static findAll(id) {
-    const allannouncements = announcements.filter(a => a.owner === id);
+    const allannouncements = announcements.filter(a => a.createrEmail === id);
     return allannouncements;
   }
 
-  static findByStatus(status, owner) {
-    const announcementstatus = announcements.filter(a => a.owner === owner);
+  static findStatus(status, createrEmail) {
+    const announcementstatus = announcements.filter(a => a.createrEmail === createrEmail);
     return announcementstatus.filter(a => a.status === status);
   }
 
-  static findById(id) {
+  static findId(id) {
     return announcements.find(a => a.id === id);
   }
 

@@ -4,10 +4,10 @@ import Responses from '../helpers/responses';
 
 
 const wrongpassword = (req, res, next) => {
-  const user = userquery.findByEmail(req.body.email);
+  const user = userquery.findEmail(req.body.email);
   const comparePassword = hash.compareSync(req.body.password, user.password);
   if (!comparePassword) {
-    return Responses.failureResponse(res, 400, 'Wrong password');
+    return Responses.failure(res, 400, 'Wrong password');
   }
   return next();
 };

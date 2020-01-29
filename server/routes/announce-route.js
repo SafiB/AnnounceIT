@@ -9,13 +9,13 @@ import authorize from '../middlewares/authorizations';
 import check from '../middlewares/user-checker';
 
 const routersannounce = express.Router();
-routersannounce.post('/api/v1/announcement', authentic, validate, duplication, announcementController.create);
-routersannounce.patch('/api/v1/Announcement/:id', authentic, authorize, validate, announcementController.update);
-routersannounce.get('/api/v1/announcement', authentic, announcementController.all);
-routersannounce.get('/api/v1/announcement', authentic, announcementController.findByStatus);
-routersannounce.get('/api/v1/announcement/:id', authentic, authorize, announcementController.getAnnouncement);
-routersannounce.delete('/api/v1/announcement/:id', authentic, check, announcementController.delete);
-routersannounce.patch('/api/v1/announcement/:id', authentic, check, announcementController.changeStatus);
-routersannounce.get('/api/v1/announcement/', authentic, check, announcementController.allAnnouncements);
+routersannounce.post('/api/v1/announcements', authentic, validate, duplication, announcementController.createUser);
+routersannounce.patch('/api/v1/Announcements/:id', authentic, authorize, validate, announcementController.updateAnnouncement);
+routersannounce.get('/api/v1/announcements', authentic, announcementController.userAll);
+routersannounce.get('/api/v1/announcements', authentic, announcementController.findStatus);
+routersannounce.get('/api/v1/announcements/:id', authentic, authorize, announcementController.specificAnnouncement);
+routersannounce.delete('/api/v1/announcements/:id', authentic, check, announcementController.deleteAnnouncemnt);
+routersannounce.patch('/api/v1/announcements/:id', authentic, check, announcementController.changeStatus);
+routersannounce.get('/api/v1/announcements/', authentic, check, announcementController.adminAll);
 
 export default routersannounce;

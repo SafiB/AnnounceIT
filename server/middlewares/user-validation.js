@@ -11,7 +11,7 @@ const validate = (req, res, next) => {
     firstname, lastname, phoneNumber, agency, email, password, is_admin,
   });
   if (validateUser.error) {
-    return Responses.failureResponse(res, 400, validateUser.error.details[0].message);
+    return Responses.failure(res, 400, validateUser.error.details[0].message);
   }
   return next();
 };
