@@ -5,7 +5,7 @@
   "scripts": {
     "start": "nodemon app.js",
     "test": "nyc --reporter=html --reporter=text mocha --require babel-register --timeout 10000 --exit  server/Tests/*",
-        "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
     "@hapi/joi": "^15.1.1",

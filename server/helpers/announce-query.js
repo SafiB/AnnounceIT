@@ -1,5 +1,4 @@
 import announcements from '../models/announcements';
-// import user from '../Models/user';
 
 class announcementQuery {
   static createUsers(announcement, createrEmail) {
