@@ -41,7 +41,42 @@ const createannouncements = async (req, res) => {
   });
 };
 
+const updateAnnouncements = async (req, res) => {
+  const { error } = validation.announceValidation(req.body);
+  if (error) {
+    return helper.returnError(codes.badRequest, error.details[0].message, res);
+  }
+  const {
+    highlight,
+    details,
+    createdby,
+  } = req.body;
+  const announce = await query.ifannouncementExist(highlight, createdby);
+  if (announce) {
+    return helper.returnError(codes.badRequest, messages.NotExistAnnounce, res);
+  }
+  const postinguserexist = await query.checkifUserExists(createdby);
+  if (postinguserexist) {
+    return helper.returnError(codes.badRequest, messages.userNoexists, res);
+  }
+  const announces = {
+    highlight,
+    details,
+    status: 'pending',
+    posted_date: moment().format('LLLL'),
+    createdby,
+  };
+  const updateAnnounceme = await query.updateAnnounce(announces);
+  const { status, posted_date, ...newData } = updateAnnounceme.rows[0];
+  return res.status(codes.created).json({
+    status: codes.created,
+    message: messages.announceupdated,
+    data: newData,
+  });
+};
+
 
 export default {
   createannouncements,
+  updateAnnouncements,
 };

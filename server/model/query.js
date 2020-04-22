@@ -38,6 +38,19 @@ const saveAnnounce = async (data1) => {
   return announcements;
 };
 
+const updateAnnounce = async (data1) => {
+  const announceUpdate = await pool.query('UPDATE announcements SET highlight=$1, details=$2, status=$3, posted_date=$4, createdby=$5  WHERE highlight=$1 and createdby=$2 RETURNING*',
+    [
+      data1.highlight,
+      data1.details,
+      data1.status,
+      data1.posted_date,
+      data1.createdby,
+    ]);
+  // eslint-disable-next-line no-console
+  return announceUpdate;
+};
+
 
 const ifuseralreadyexist = async (email, password) => {
   const userlogin = await pool.query('SELECT * FROM users WHERE email=$1', [email]);
@@ -69,5 +82,6 @@ export default {
   ifuseralreadyexist,
   ifannouncementExist,
   saveAnnounce,
+  updateAnnounce,
   // ifpostinguserexist,
 };
