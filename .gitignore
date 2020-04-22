@@ -4,3 +4,4 @@ node_modules
 .env
 node_modules/
 >>>>>>> c6defc14910971c41332922e69cbe4c033fef16f
+.vscode
