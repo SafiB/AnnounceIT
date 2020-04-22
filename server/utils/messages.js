@@ -6,6 +6,7 @@ const userloggedIn = 'User has logged in succesfully';
 const invalidCredenciels = 'Invalid username and password';
 const Announcexist = 'The announcement already exist';
 const announceCreated = 'The announcements has been created successfully!';
+const announceupdated = 'The announcement has been updated successfully!';
 export default {
   userCreated,
   passwordsNoMatch,
@@ -15,4 +16,5 @@ export default {
   invalidCredenciels,
   Announcexist,
   announceCreated,
+  announceupdated,
 };
