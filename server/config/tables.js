@@ -10,7 +10,8 @@ pool.on('connect', () => {
  */
 const drop = () => {
   const dropUsersTable = 'DROP TABLE IF EXISTS users CASCADE;';
-  const dropTables = `${dropUsersTable};`;
+  const dropAnnouncementsTable = 'DROP TABLE IF EXISTS announcements CASCADE;';
+  const dropTables = `${dropUsersTable},${dropAnnouncementsTable};`;
 
   pool.query(dropTables, () => {
     pool.end();
@@ -36,8 +37,18 @@ const create = () => {
       createdon timestamptz NOT NULL
       );`;
 
+  const createAnnouncementsTable = `CREATE TABLE IF NOT EXISTS announcements(
+      id serial PRIMARY KEY,
+      highlight varchar NOT NULL,
+      details varchar NOT NULL,
+      status varchar NULL,
+      posted_date timestamptz NOT NULL,
+      createdby varchar NOT NULL
+   );`;
+
   const createTables = `
     ${createUsersTable};
+    ${createAnnouncementsTable};
     `;
 
   pool.query(createTables, (err, res) => {

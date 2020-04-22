@@ -1,9 +1,11 @@
 import express from 'express';
-import controller from '../controller/users';
+import users from '../controller/users';
+import announcements from '../controller/announcements';
 
 const router = express.Router();
 
-router.post('/signup', controller.userSignUp);
-router.post('/signin', controller.userLogin);
+router.post('/signin', users.userLogin);
+router.post('/signup', users.userSignUp);
+router.post('/createannouncement', announcements.createannouncements);
 
 export default router;

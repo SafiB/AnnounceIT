@@ -15,7 +15,7 @@ if (process.env.DATABASE_URL) {
 } else {
   // Development env
   // connection = new pg.Pool({ connectionString: process.env.DEVDBURL });
-  connection = new pg.Pool({ connectionString: 'postgres://postgres:segolene@localhost:5433/announceit' });
+  connection = new pg.Pool({ connectionString: 'postgres://postgres:sego1ene@localhost:5432/announceit' });
   // console.log('===== ', connection);
 }
 

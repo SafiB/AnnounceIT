@@ -50,6 +50,11 @@ const userSignUp = async (req, res) => {
 };
 // eslint-disable-next-line consistent-return
 const userLogin = async (req, res) => {
+  // Validatiom
+  const { error } = validation.userSignInValidation(req.body);
+  if (error) {
+    return helper.returnError(codes.badRequest, error.details[0].message, res);
+  }
   const data = {
     email: req.body.email,
     password: req.body.password,

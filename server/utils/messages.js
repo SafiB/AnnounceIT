@@ -4,6 +4,8 @@ const userExists = 'This email is already registered';
 const userNoexists = 'This User is not registered, Please register first';
 const userloggedIn = 'User has logged in succesfully';
 const invalidCredenciels = 'Invalid username and password';
+const Announcexist = 'The announcement already exist';
+const announceCreated = 'The announcements has been created successfully!';
 export default {
   userCreated,
   passwordsNoMatch,
@@ -11,4 +13,6 @@ export default {
   userNoexists,
   userloggedIn,
   invalidCredenciels,
+  Announcexist,
+  announceCreated,
 };
